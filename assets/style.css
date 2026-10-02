@@ -202,3 +202,5 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+.footer .icp { color: var(--muted); }
+.footer .icp:hover { color: var(--text); }
