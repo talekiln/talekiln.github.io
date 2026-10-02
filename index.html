@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>剧窑 TaleKiln · AI短剧创作台</title>
+<meta name="description" content="剧窑 TaleKiln，AI短剧创作台。一言入窑，百炼成剧：从一句故事到可导出的短剧成片，剧本、分镜、时间线、画布四视图同一份项目数据。">
+<meta property="og:title" content="剧窑 TaleKiln · AI短剧创作台">
+<meta property="og:description" content="一言入窑，百炼成剧。">
+<meta property="og:image" content="assets/four-views-storyboard.png">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="剧窑 TaleKiln 首页">
+      <img src="assets/favicon.svg" alt="" width="28" height="28">
+      <span>剧窑</span><span class="brand-en">TaleKiln</span>
+    </a>
+    <nav class="nav-links" aria-label="页面导航">
+      <a href="#views">四视图</a>
+      <a href="#features">功能</a>
+      <a href="#flow">流程</a>
+      <a href="#roadmap">进展</a>
+      <a class="btn btn-small" href="#download">下载</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">剧窑 TaleKiln · AI短剧创作台</p>
+    <h1>一言入窑，<br class="br-sm">百炼成剧。</h1>
+    <p class="lead">剧窑是一款桌面端 AI 短剧创作工具。写下一句故事，生成剧本与分镜，出图、出视频、配音、加字幕，在时间线上剪好后导出成片。剧本、分镜、时间线、画布是同一份项目的四种看法，改一处，处处同步。</p>
+    <div class="cta">
+      <a class="btn" href="#download">下载桌面版</a>
+      <a class="btn btn-ghost" href="#views">看看界面</a>
+    </div>
+    <ul class="hero-tags" aria-label="要点">
+      <li>Windows 桌面版</li>
+      <li>自带阿里云百炼 Key</li>
+      <li>项目文件留在本机</li>
+    </ul>
+  </div>
+</section>
+
+<section id="views" class="section">
+  <div class="wrap">
+    <h2>四个视图，一份项目</h2>
+    <p class="section-lead">四个视图读写同一张项目图。在剧本里改一句台词，分镜、时间线和画布马上跟着变；撤销也是全局的。</p>
+
+    <div class="tabs" role="tablist" aria-label="四个视图">
+      <button role="tab" aria-selected="true" aria-controls="p-script" id="t-script">剧本</button>
+      <button role="tab" aria-selected="false" aria-controls="p-storyboard" id="t-storyboard" tabindex="-1">分镜</button>
+      <button role="tab" aria-selected="false" aria-controls="p-timeline" id="t-timeline" tabindex="-1">时间线</button>
+      <button role="tab" aria-selected="false" aria-controls="p-canvas" id="t-canvas" tabindex="-1">画布</button>
+    </div>
+
+    <div class="panels">
+      <figure role="tabpanel" id="p-script" aria-labelledby="t-script">
+        <img src="assets/four-views-script.png" alt="剧本视图：按场景逐行列出旁白与对白" width="1200" height="760" loading="lazy">
+        <figcaption><b>剧本</b>　一句话生成剧本，角色表一并建好；旁白、对白逐行编辑，可拆分、合并、插入。</figcaption>
+      </figure>
+      <figure role="tabpanel" id="p-storyboard" aria-labelledby="t-storyboard" hidden>
+        <img src="assets/four-views-storyboard.png" alt="分镜视图：镜号、首帧、画面描述、台词、时长的分镜表" width="1200" height="760" loading="lazy">
+        <figcaption><b>分镜</b>　每镜的首帧、画面描述、台词和时长一表看全，单镜或整集一键生成。</figcaption>
+      </figure>
+      <figure role="tabpanel" id="p-timeline" aria-labelledby="t-timeline" hidden>
+        <img src="assets/four-views-timeline.png" alt="时间线视图：视频、字幕、旁白、音乐四条轨道" width="1200" height="760" loading="lazy">
+        <figcaption><b>时间线</b>　视频、字幕、旁白、音乐四条轨，拖拽、吸附、切分，快捷键参考剪映。</figcaption>
+      </figure>
+      <figure role="tabpanel" id="p-canvas" aria-labelledby="t-canvas" hidden>
+        <img src="assets/four-views-canvas.png" alt="画布视图：剧本行、镜头、首帧图、配音、视频以节点连线展示" width="1200" height="760" loading="lazy">
+        <figcaption><b>画布</b>　剧本行、镜头、首帧图、配音、视频连成一张图，哪一环需要重新生成一眼看清。</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section section-alt">
+  <div class="wrap">
+    <h2>为短剧创作准备的工具</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>用你自己的 Key</h3>
+        <p>接入阿里云百炼，文本、图像、视频、配音都走你自己的账号，Key 用系统密钥存储加密保存，界面只显示末 4 位。首次打开有引导向导，粘贴 Key 后自动做连通测试。</p>
+      </article>
+      <article class="card">
+        <h3>花多少，心里有数</h3>
+        <p>每次生成先估价再确认，可设月度花费上限。花费页按日、模型汇总，逐任务列出，可导出 CSV。</p>
+      </article>
+      <article class="card">
+        <h3>后台任务队列</h3>
+        <p>出图、出视频进入持久化队列：限并发、遇限流自动退避、断点续传。生成结果完成即下载到本机，重开软件后自动续上未完成的任务。</p>
+      </article>
+      <article class="card">
+        <h3>只重做改过的那一镜</h3>
+        <p>改了一个镜头，只重新生成和渲染这一镜，其余直接复用缓存，省时也省钱。</p>
+      </article>
+      <article class="card">
+        <h3>剪映式快捷键</h3>
+        <p>空格播放、S 切分、Ctrl+Z 撤销、逐帧移动；分镜工作台里 R 重新生成、Alt+1~4 选候选、Tab 做 A/B 对比。键位可自定义。</p>
+      </article>
+      <article class="card">
+        <h3>配音、字幕与配乐</h3>
+        <p>一键为旁白配音，字幕按词对齐，片长按真实音频计算。音乐轨可导入自己的配乐，支持循环铺满、音量与人声压低。</p>
+      </article>
+      <article class="card">
+        <h3>本机硬件编码导出</h3>
+        <p>自带渲染核心与 ffmpeg，可选分辨率、帧率与编码器，支持显卡硬件编码。中文路径、带空格的路径都没问题。</p>
+      </article>
+      <article class="card">
+        <h3>内置示例项目</h3>
+        <p>没有 Key 也能先上手：一键打开五镜示例短剧，四个视图都能点一遍，不调用任何 AI。</p>
+      </article>
+      <article class="card">
+        <h3>AI 内容标识</h3>
+        <p>导出的成片默认带“AI生成”画面标识和文件元数据标识，方便合规发布。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="flow" class="section">
+  <div class="wrap">
+    <h2>从一句话到一部短剧</h2>
+    <ol class="flow">
+      <li><span class="step">配泥</span><h3>一句故事</h3><p>写下想法，生成剧本和角色表。</p></li>
+      <li><span class="step">拉坯</span><h3>分镜成形</h3><p>拆成镜头，逐镜出首帧图和视频。</p></li>
+      <li><span class="step">修坯</span><h3>剪辑打磨</h3><p>在时间线上配音、加字幕、铺配乐。</p></li>
+      <li><span class="step">烧制</span><h3>导出成片</h3><p>本机渲染，得到可发布的 MP4。</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="roadmap" class="section section-alt">
+  <div class="wrap">
+    <h2>现在与接下来</h2>
+    <div class="road">
+      <div class="road-col">
+        <h3><span class="dot dot-now"></span>现在可用（内测）</h3>
+        <ul>
+          <li>Windows 桌面版</li>
+          <li>阿里云百炼：剧本、图像、视频、配音全流程</li>
+          <li>剧本 / 分镜 / 时间线 / 画布四视图</li>
+          <li>任务队列、花费估算与上限</li>
+          <li>剪映式快捷键与全局撤销</li>
+          <li>本机渲染导出 MP4</li>
+        </ul>
+      </div>
+      <div class="road-col">
+        <h3><span class="dot dot-next"></span>即将推出</h3>
+        <ul>
+          <li>macOS 版</li>
+          <li>导出到剪映草稿、Premiere 和 Final Cut 工程</li>
+          <li>抖音、视频号等平台尺寸预设</li>
+          <li>Ctrl+K 命令面板</li>
+          <li>更多模型服务商</li>
+          <li>角色一致性、导演模式、模板与插件</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="section download">
+  <div class="wrap">
+    <h2>下载剧窑</h2>
+    <p class="section-lead">剧窑目前处于邀请内测阶段，公开下载敬请期待。</p>
+    <div class="cta cta-center">
+      <span class="btn btn-disabled" aria-disabled="true">Windows 版 · 敬请期待</span>
+      <span class="btn btn-ghost btn-disabled" aria-disabled="true">macOS 版 · 敬请期待</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="brand brand-foot"><img src="assets/favicon.svg" alt="" width="22" height="22"><span>剧窑</span><span class="brand-en">TaleKiln</span></div>
+    <p>© 2026 剧窑 TaleKiln. 保留所有权利。</p>
+    <p class="muted">界面截图为开发中版本，正式版可能有所不同。</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      var n = tabs[(i + d + tabs.length) % tabs.length];
+      select(n); n.focus(); e.preventDefault();
+    });
+  });
+})();
+</script>
+</body>
+</html>
