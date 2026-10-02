@@ -1,0 +1,14 @@
+# 有已备案并解析到服务器的域名时：把下面的域名换成你的，Caddy 会自动申请 HTTPS 证书。
+talekiln.example.com, www.talekiln.example.com {
+	root * /var/www/talekiln
+	file_server
+	encode gzip
+	header /assets/* Cache-Control "public, max-age=86400"
+}
+
+# 还没有域名或备案未下来时，先用这一段，通过 http://服务器IP 访问：
+# :80 {
+# 	root * /var/www/talekiln
+# 	file_server
+# 	encode gzip
+# }
