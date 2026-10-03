@@ -1,6 +1,6 @@
 # 部署到腾讯云
 
-GitHub Pages 在国内访问不稳定，所以同一份静态文件再放一份到腾讯云服务器。每次推送 main，`.github/workflows/deploy-tencent.yml` 用 rsync 把文件同步过去。
+GitHub Pages 在国内访问不稳定，所以同一份静态文件再放一份到腾讯云服务器。每次推送 main，`.github/workflows/deploy-tencent.yml` 用 rsync 把文件同步过去。站点结构：`/` 是个人主页，`/talekiln/` 是剧窑作品页。
 
 ## 一、服务器上做一次（Ubuntu）
 
@@ -39,21 +39,30 @@ ssh-keygen -t ed25519 -f talekiln_deploy -N "" -C "talekiln-site-deploy"
 
 配好后到 Actions → deploy-tencent → Run workflow 手动跑一次，以后每次推送 main 自动同步。
 
-## 四、配置 Caddy
-
-把 `deploy/Caddyfile.example` 改成你的域名后写入 `/etc/caddy/Caddyfile`，然后：
+## 四、配置 Caddy（先用 IP 访问）
 
 ```bash
+sudo nano /etc/caddy/Caddyfile   # 清空后粘贴仓库里 deploy/Caddyfile.example 的内容
+sudo caddy validate --config /etc/caddy/Caddyfile
 sudo systemctl reload caddy
 ```
 
-- **有域名且已备案**：用文件里的域名那段，Caddy 自动签 HTTPS 证书。域名 A 记录指向服务器 IP。
-- **备案还没下来**：大陆地域的腾讯云机器会拦截未备案域名的 80/443 访问。先用文件里注释掉的 `:80` 那段，通过 `http://服务器IP` 访问；备案通过后换成域名那段。
-- 服务器如果在香港或海外地域，不需要备案，直接用域名那段。
+- **备案审核期间**：用文件里的 `:80` 段，审核人员通过 `http://服务器IP/` 访问。注意是 `http://`，不是 `https://`：IP 没有证书，`https://IP` 会报错或连到别的服务。
+- 腾讯云拦截的是**未备案域名**的访问，直接用 IP 访问不受影响。审核期间不要把域名解析到这台服务器。
+- 443 端口这阶段用不到；如果 443 上还有别的程序（之前发现过 xray），先停掉，安全组里也可以只开 80。
+- **备案通过后**：域名 A 记录指向服务器 IP，把 `:80` 段换成域名段，`systemctl reload caddy`，Caddy 自动签 HTTPS 证书。
 
 ## 五、检查
 
 ```bash
-curl -I http://服务器IP/          # 或 https://你的域名/
-ls /var/www/talekiln              # 应看到 index.html 和 assets/
+curl -I http://127.0.0.1/                 # 在服务器上，应返回 200
+curl -s http://127.0.0.1/ | grep ICP      # 能看到备案号
+ls /var/www/talekiln                      # 应有 index.html、talekiln/、assets/
 ```
+
+在自己电脑浏览器打开 `http://服务器IP/` 是个人主页，`http://服务器IP/talekiln/` 是剧窑作品页。
+
+打不开时按顺序排查：
+1. 服务器上 `curl -I http://127.0.0.1/` 不是 200：看 `sudo journalctl -u caddy -n 50`。
+2. 服务器上正常、外面打不开：腾讯云控制台“安全组”和 `sudo ufw status` 是否放行 80。
+3. 页面是旧的或空的：GitHub 仓库 Actions → deploy-tencent 最近一次是否成功；Secrets 是否配了。
